@@ -15,6 +15,6 @@ global class WarehouseSyncScheduleTest {
     System.assertEquals(0, actualTimesTriggered);
     
     String actualFireTime = String.valueOf(crTrigger.NextFireTime);
-    System.assertEquals('2020-08-02 13:00:00', actualFireTime);   
+    System.assertEquals('2020-08-03 13:00:00', actualFireTime);   
     }
 }

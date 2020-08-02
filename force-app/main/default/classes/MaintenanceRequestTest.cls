@@ -23,7 +23,8 @@ public with sharing class MaintenanceRequestTest {
         Origin = 'web',
         Type = 'Repair',
         Subject = 'Routine maintenance for vehicle ' + vehicle.Name,           
-        Vehicle__c = vehicle.Id);
+        Vehicle__c = vehicle.Id,
+        Equipment__c = equipment.Id);
 
         insert request;
         System.debug('Single: request = ' + request);

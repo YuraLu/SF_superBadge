@@ -26,12 +26,14 @@ public with sharing class MaintenanceRequestHelper {
                                     + caseItem.Vehicle__r.VIN_Number__c;
             newCase.Vehicle__c = caseItem.Vehicle__c;
             newCase.Date_Reported__c = System.today();
-            newCase.Date_Due__c = System.today();
-
-            if(nearestServiceDateMap.size() > 0){
-                newCase.Date_Due__c = System.today().addDays(Integer.valueOf(nearestServiceDateMap.get(caseItem.Id)));
-            }
             newCase.ParentId = caseItem.Id;
+            newCase.Equipment__c = caseItem.Equipment__c;
+
+            if(nearestServiceDateMap.get(caseItem.Id) != Null){
+                newCase.Date_Due__c = System.today().addDays(Integer.valueOf(nearestServiceDateMap.get(caseItem.Id)));
+            }else{
+                newCase.Date_Due__c = System.today();
+            }
 
             System.debug('nearestServiceDateMap.size() = ' + nearestServiceDateMap.size() );
 
